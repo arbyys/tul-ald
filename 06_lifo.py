@@ -46,8 +46,3 @@ queue = Queue()
 for line in sys.stdin:
     line = line.rstrip()
     queue.push(line)
-
-while (True):
-    if (queue.isEmpty()):
-        break
-    print(queue.pop().data)
