@@ -1,4 +1,5 @@
 import sys
+
 dict = {}
 all = []
 
