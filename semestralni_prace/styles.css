@@ -1,0 +1,91 @@
+body {
+    background-color: #ebebeb;
+    font-family: Verdana;
+}
+
+header {
+    background: rgb(255, 166, 0);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom-left-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+}
+
+header .left {
+    font-size: 1.45rem;
+    font-weight: bold;
+}
+
+main {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+section.board {
+    margin-right: 1.5rem;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    border-left: 1px solid #bdbdbd;
+    border-top: 1px solid #bdbdbd;
+    width: 820px;
+}
+
+.grid-row {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.grid-item {
+    width: 40px;
+    height: 40px;
+    border-bottom: 1px solid #bdbdbd;
+    border-right: 1px solid #bdbdbd;
+}
+
+.grid-item img {
+    width: 41px;
+    height: 41px;
+}
+
+.generate-button {
+    background-color: rgb(255, 166, 0);
+    color: black;
+}
+
+.settings img {
+    width: 49px;
+    border: 2px solid #969696;
+}
+
+.settings {
+    width: 300px;
+}
+
+.settings-line {
+    margin-top: 1.5rem;
+}
+
+.settings-item {
+    padding: 0.8rem;
+}
+
+.settings input[type="checkbox"] {
+    display: none;
+}
+
+.settings .wrapper:has(input[type="checkbox"]:not(:checked)) {
+    opacity: 0.22;
+}
+
+.wrapper,
+.settings-item {
+    display: inline-block;
+}

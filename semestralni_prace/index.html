@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+        integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="left">
+            ALD - Semestrální práce
+        </div>
+        <div class="right">
+            Adam Petříček
+        </div>
+    </header>
+    <main id="app">
+        <section class="settings">
+            <h3>1. výběr možných trubek:</h3>
+
+            <div class="settings-item" v-for="i in 15">
+                <label :for="'input-' + i">
+                    <div class="wrapper">
+                        <img :src="'resources/' +  i  +'.png'" alt="">
+                        <input :id="'input-' + i" type="checkbox" v-model="allowed[i-1]">
+                    </div>
+                </label>
+            </div>
+
+            <h3>2. <button @click="generate()" class="pure-button pure-button-primary generate-button">Vygenerovat
+                    pole</button>
+            </h3>
+        </section>
+        <section class="board">
+            <div class="grid">
+                <div class="grid-row" v-for="row in grid">
+                    <div class="grid-item" v-for="item in row">
+                        <template v-if="item >= 0">
+                            <img :src="'resources/' + item + '.png'" alt="">
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                grid: [...Array(20)].map(_ => Array(20).fill(-1)),
+                properties: ["1111", "0101", "1010", "0011", "0110", "1100", "1001", "0111", "1011", "1110", "1101", "0010", "0001", "0100", "1000"],
+                allowed: [true, true, false, false, false, false, false, false, false, false, false, false, false, false, false],
+            },
+            mounted: function () {
+
+            },
+            methods: {
+                getRandomAdjacent: function () {
+                    s
+                },
+
+                getAllAllowed: function () {
+                    let returnValues = []
+                    for (let index = 0; index < this.allowed.length; ++index) {
+                        if (this.allowed[index]) {
+                            returnValues.push(index)
+                        }
+                    }
+                    return returnValues
+                },
+
+                generate: function () {
+                    currentAllowed = this.getAllAllowed()
+                    console.log(currentAllowed)
+                },
+
+                gridIsEmpty: function () {
+                    for (let i = 0; i < this.grid.length; ++i) {
+                        const arr = this.grid[i];
+                        for (let j = 0; j < arr.length; ++j) {
+                            if (this.grid[i][j] != -1) {
+                                return false;
+                            }
+                        }
+                    }
+                    return true;
+                },
+            },
+            computed: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>
