@@ -41,6 +41,9 @@
                         <template v-if="item >= 0">
                             <img :src="'resources/' + item + '.png'" alt="">
                         </template>
+                        <template v-else-if="item == -2">
+                            <img :src="'resources/' + item + '.png'" alt="">
+                        </template>
                     </div>
                 </div>
             </div>
@@ -53,7 +56,7 @@
             data: {
                 grid: [...Array(20)].map(_ => Array(20).fill(-1)),
                 properties: ["1111", "0101", "1010", "0011", "0110", "1100", "1001", "0111", "1011", "1110", "1101", "0010", "0001", "0100", "1000"],
-                allowed: [true, true, false, false, false, false, false, false, false, false, false, false, false, false, false],
+                allowed: [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
                 adjacent: [],
                 currentAllowed: []
             },
