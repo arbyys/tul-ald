@@ -4,6 +4,8 @@
 
 ___
 
+Použitý jazyk: JavaScript (framework Vue.js)
+
 ### Popis aplikace
 
 Uživatel má na výběr z 15 možných trubek, které se použijí na generaci. Základně jsou vybrány všechny z nich. Při kliknutí na tlačítko "Vygenerovat pole" se spustí algoritmus, který generuje pole dokud není plné. Pokud na dané místo nelze umístit žádnou vhodnou dlaždici, místo se vyplní červeným křížkem.
