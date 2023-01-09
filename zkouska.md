@@ -459,10 +459,8 @@ ___
 - metody:
     - linear probing
         - prvek vložíme o n pozic dál na další volnou pozici
-        - musíme uchovávat, o kolik byl prvek posunut
     - double hashing
         - použije se druhá hashovací funkce
-        - musíme uchovávat, jakou funkcí byl daný prvek zahashován
 
 ___
 
