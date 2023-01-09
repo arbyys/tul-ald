@@ -406,9 +406,19 @@ ___
 - složitost vyhledávání v něm je tedy log(N)
 - naopak nevyvážený strom se rozšiřuje pouze do jedné strany
 - stromy chceme vyvážit pro větší efektivitu operací
+- bal = faktor vyváženosti 
+    - `bal(u) = h[l] - h[r]`
+    - bal vyváženého stromu je -1, 0 nebo 1
 - stromy se vyvažují pomocí rotací
 - autovyvažující stromy
     - hloubka levého a pravého podstromu se liší max o 1
+- při přidávání nového prvku:
+    - kontroluje se bal všech jeho předků směrem ke kořeni
+    - pokud bal je jiný než -1, 0, 1, musíme provést příslušnou rotaci
+        - pokud bal(P) = 2 a bal(L) = 1: **R rotace**
+        - pokud bal(P) = 2 a bal(L) = -1: **LR rotace**
+        - pokud bal(P) = -2 a bal(R) = 1: **RL rotace**
+        - pokud bal(P) = -2 a bal(R) = -1: **L rotace**
 
 ___
 
