@@ -41,112 +41,17 @@
                         <template v-if="item >= 0">
                             <img :src="'resources/' + item + '.png'" alt="">
                         </template>
+                        <template v-else-if="item == -2">
+                            <img :src="'resources/' + item + '.png'" alt="">
+                        </template>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                grid: [...Array(20)].map(_ => Array(20).fill(-1)),
-                properties: ["1111", "0101", "1010", "0011", "0110", "1100", "1001", "0111", "1011", "1110", "1101", "0010", "0001", "0100", "1000"],
-                allowed: [true, true, false, false, false, false, false, false, false, false, false, false, false, false, false],
-                adjacent: []
-            },
-            mounted: function () {
+    <script src="index.js"></script>
 
-            },
-            methods: {
-
-                getRandomNumber: function (max) {
-                    return Math.random() * max | 0;
-                },
-
-                getRandomAdjacent: function () {
-                    if (this.gridIsEmpty()) {
-                        return [this.getRandomNumber(this.gridDimension), this.getRandomNumber(this.gridDimension)]
-                    }
-
-                    randomFilled = this.adjacent[this.getRandomNumber(this.adjacent.length)];
-                    loop:
-                    while (true) {
-                        randomN = this.getRandomNumber(3)
-                        switch (randomN) {
-                            case 0: // up
-                                if (randomFilled[0] != 0) {
-                                    randomFilled[0] -= 1;
-                                    break loop;
-                                }
-                                break;
-                            case 1: // right
-                                if (randomFilled[1] != this.gridDimension - 1) {
-                                    randomFilled[1] += 1;
-                                    break loop;
-                                }
-                                break;
-                            case 2: // down
-                                if (randomFilled[0] != this.gridDimension - 1) {
-                                    randomFilled[0] += 1;
-                                    break loop;
-                                }
-                                break;
-                            case 3: // left
-                                if (randomFilled[1] != 0) {
-                                    randomFilled[1] -= 1;
-                                    break loop;
-                                }
-                                break;
-                        }
-                    }
-                    return randomFilled;
-                },
-
-                addAdjacent: function (randomPos) {
-                    this.adjacent.push(randomPos)
-                },
-
-                getAllAllowed: function () {
-                    let returnValues = []
-                    for (let index = 0; index < this.allowed.length; ++index) {
-                        if (this.allowed[index]) {
-                            returnValues.push(index)
-                        }
-                    }
-                    return returnValues
-                },
-
-                generate: function () {
-                    currentAllowed = this.getAllAllowed()
-                    console.log(currentAllowed)
-                    randomPos = this.getRandomAdjacent()
-                    randomItem = currentAllowed[this.getRandomNumber(currentAllowed.length)] + 1
-                    Vue.set(this.grid[randomPos[0]], randomPos[1], randomItem);
-                    this.addAdjacent(randomPos)
-                },
-
-                gridIsEmpty: function () {
-                    for (let i = 0; i < this.grid.length; ++i) {
-                        const arr = this.grid[i];
-                        for (let j = 0; j < arr.length; ++j) {
-                            if (this.grid[i][j] != -1) {
-                                return false;
-                            }
-                        }
-                    }
-                    return true;
-                },
-
-            },
-            computed: {
-                gridDimension() {
-                    return this.grid.length;
-                }
-            }
-        })
-    </script>
 </body>
 
 </html>
