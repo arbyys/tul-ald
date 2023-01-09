@@ -498,12 +498,13 @@ ___
     - složitost: nejhorší O(n*m + A)
     - rychlý pro velkou, pomalý pro malou abecedu
         - v případě totožné abecedy je B-M rychlejší než přirozené
-    - nejdříve musíme udělat preprocesing všech znaků hledaného textu
-        - pro každý znak určíme jeho nejvyšší index v prohledávaném textu
+    - nejdříve musíme udělat preprocesing všech znaků hledané fráze
+        - pro každý znak určíme jeho nejvyšší index v hledané frázi
         - pro všechny ostatní znaky to bude délka hledané fráze
     - začneme vyhledávat na znaku, který se nachází stejně daleko od začátku prohledávaného textu, jako je délka hledané fráze
     - pokud se znaky neshodují, přeskočíme dopředu o příslušnou hodnotu z tabulky určenou preprocesingem
-    - jakmile najdeme shodu, postupujeme v opačném směru charakter po charakteru,
+    - jakmile najdeme shodu, postupujeme v opačném směru charakter po charakteru
+        - pokud najdeme neshodu, znovu přeskočíme dopředu
 - **Rabin-Karp**
     - využívá princip hashování
     - vypočte hash pro hledanou frázi a pro každý podřetězec prohledávaného textu, který má stejnou délku jako hledaná fráze
